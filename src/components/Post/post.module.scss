@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  margin: 1rem;
+
+  width: 30%;
+
+  text-decoration: none;
+
+}
+
+.title {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 28;
+  padding-left: 1rem;
+
+  color: var(--Heading);
+}
+
+.subtitle {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 18;
+
+  padding-left: 1rem;
+
+  color: var(--Body);
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+
+  color: var(--Info);
+}
+
+.createdAt {
+  display: flex;
+  justify-content: space-between;
+  width: 7rem;
+  margin-right: 1rem;
+}
+
+.user {
+  display: flex;
+  width: 7rem;
+  margin-right: 1rem;
+}
+
+.icon {
+  color: var(--Info);
+  margin-right: 5px;
+}

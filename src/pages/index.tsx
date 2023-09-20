@@ -4,6 +4,8 @@ import { getPrismicClient } from '../services/prismic';
 
 import commonStyles from '../styles/common.module.scss';
 import styles from './home.module.scss';
+import Link from 'next/link';
+import Post from '../components/Post';
 
 interface Post {
   uid?: string;
@@ -24,13 +26,49 @@ interface HomeProps {
   postsPagination: PostPagination;
 }
 
-// export default function Home() {
-//   // TODO
-// }
+export default function Home({
+  postsPagination
+} : HomeProps) {
+  return (
+    <div className={styles.body}>
+      {
+      postsPagination.results.map(post => (
+        <Post
+          data={post.data}
+          first_publication_date={post.first_publication_date}
+          key={post.uid}
+          uid={post.uid}
+        />
+      ))
+      }
+      {
+        postsPagination.next_page !== null
+        &&
+        <button
+          type="button"
+        >
+            Carregar mais posts
+        </button>
+      }
+    </div>
+  );
+}
 
-// export const getStaticProps = async () => {
-//   // const prismic = getPrismicClient({});
-//   // const postsResponse = await prismic.getByType(TODO);
+export const getStaticProps = async ({req}) => {
+  const prismic = getPrismicClient({
+    req
+  });
+  const postsResponse = await prismic.getByType('publication', { // alterar para post depois
 
-//   // TODO
-// };
+  });
+
+  // TODO
+  return {
+    props: {
+      postsPagination: {
+        next_page: postsResponse.next_page,
+        results: postsResponse.results,
+      }
+    },
+  }
+};
