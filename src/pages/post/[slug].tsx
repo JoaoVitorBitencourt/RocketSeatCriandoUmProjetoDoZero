@@ -29,12 +29,30 @@ interface PostProps {
 export default function Post({
   post
 }: PostProps) {
-  // TODO
 
   return (
-    <div>
-      <img src="/Logo.svg" alt="logo" />
-      {post.data.title}
+    <div className={styles.container}>
+      <div className={styles.postContent}>
+        <img src={post.data.banner.url} alt="banner" className={styles.Image}/>
+        <h1 className={styles.title}>{post.data.title}</h1>
+        <div className={styles.postInfo}>
+          <span>{post.first_publication_date}</span>
+          <span>{post.data.author}</span>
+        </div>
+        <div>
+          {post.data.content.map((content, index) => (
+            <div key={index}>
+              <h2 className={styles.titleContent}>{content.heading}</h2>
+              <div>
+                {content.body.map((body, index) => (
+                  <p className={styles.text} key={index}>{body.text}</p>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
     </div>
   );
 }
@@ -56,19 +74,15 @@ export const getStaticPaths = async () => {
     }),
     fallback: true,
   }
-
-  // TODO
 };
 
 export const getStaticProps = async ({params }) => {
   const prismic = getPrismicClient({});
-  const response = await prismic.getByUID("publication", String(params.slug), {});
+  const response = await prismic.getByUID("publication", String(params.slug), {}); // alterar para post depois
 
   return {
     props: {
       post: response,
     },
   }
-
-  // TODO
 };

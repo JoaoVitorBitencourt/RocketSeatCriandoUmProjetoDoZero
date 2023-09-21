@@ -9,6 +9,11 @@
 
   text-decoration: none;
 
+  transition: box-shadow 0.2s;
+
+  &:hover {
+    box-shadow: 0px 0px 3px 0px var(--Highlight);
+  }
 }
 
 .title {

@@ -1,1 +1,13 @@
-// TODO
+.Header {
+  background-color: var(--Background);
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  &:hover {
+    cursor: pointer;
+  }
+}

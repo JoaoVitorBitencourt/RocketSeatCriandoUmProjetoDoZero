@@ -42,10 +42,11 @@ export default function Home({
       ))
       }
       {
-        postsPagination.next_page !== null
+        postsPagination.next_page === null
         &&
         <button
           type="button"
+          className={styles.loadMore}
         >
             Carregar mais posts
         </button>

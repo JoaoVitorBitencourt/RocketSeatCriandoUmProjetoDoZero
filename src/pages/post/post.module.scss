@@ -1,1 +1,46 @@
-// TODO
+.container {
+  background: var(--Background);
+  height: 95vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Image {
+  width: 100%;
+  height: 400px;
+}
+
+.postContent {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  color: var(--Heading);
+}
+
+.postInfo {
+  // width: 100%;
+  // height: 100px;
+
+  display: flex;
+  flex-direction: row;
+  // align-items: center;
+
+  color: var(--Info);
+}
+
+.titleContent {
+  color: var(--Heading);
+}
+
+.text {
+  color: var(--Body);
+}
