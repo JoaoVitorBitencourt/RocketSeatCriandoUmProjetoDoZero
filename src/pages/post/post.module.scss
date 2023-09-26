@@ -15,11 +15,11 @@
 
 .postContent {
   height: 100%;
-  width: 100%;
+  width: 50%;
 
   display: flex;
   flex-direction: column;
-  align-items: center;
+  // align-items: center;
 }
 
 .title {
@@ -27,12 +27,8 @@
 }
 
 .postInfo {
-  // width: 100%;
-  // height: 100px;
-
   display: flex;
   flex-direction: row;
-  // align-items: center;
 
   color: var(--Info);
 }
@@ -43,4 +39,12 @@
 
 .text {
   color: var(--Body);
+}
+
+.containerInfo {
+  margin-right: 1rem;
+
+  span {
+    margin-left: 0.5rem;
+  }
 }
